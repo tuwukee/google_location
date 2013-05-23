@@ -12,3 +12,6 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2', '~> 0.5.0'
