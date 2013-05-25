@@ -2,4 +2,15 @@
   <div class='topic'><%= @user.name %></div>
 </legend>
 
-<%= gmaps4rails(@json) %>
+<div class="row">
+  <div class="span10" id="user_map">
+    <%= gmaps4rails(@json) %>
+  </div>
+  <div class="span2 user_location">
+  	<%= form_for @user, :remote => :true, :html => { :id => 'user_location' } do |f| %>
+  	  <%= f.text_field :longitude %>
+  	  <%= f.text_field :latitude %>
+  	<% end %>
+  	<!-- , :type => "number", :step => "any", :min => -180, :max => 180 -->
+  </div>
+</div>

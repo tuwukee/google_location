@@ -9,4 +9,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @json = @user.to_gmaps4rails
   end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+
+    respond_to do |format|
+      format.html { redirect_to edit_user_url(@user) }
+      format.js { render :nothing => true }
+    end
+  end
 end
