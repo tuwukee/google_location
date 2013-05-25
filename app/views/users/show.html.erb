@@ -4,7 +4,12 @@
 
 <div class="row">
   <div class="span10" id="user_map">
-    <%= gmaps4rails(@json) %>
+    <%= gmaps(
+      :markers => { :data => @json },
+      :map_options => { :auto_adjust => true, # :auto_adjust map to center on location
+      :auto_zoom => false,  # :auto_zoom defaults to full zoom in, set to false to utilize :zoom
+      :zoom => 10 }   # :zoom 0 is fully zoomed out (world view), 21 is fully zoomed in (street view)
+    ) %>
   </div>
   <div class="span2 user_location">
   	<%= form_for @user, :remote => :true, :html => { :id => 'user_location' } do |f| %>
