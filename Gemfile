@@ -17,3 +17,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2', '~> 0.5.0'
 gem 'gmaps4rails'
+
+gem 'koala'
+gem 'json'

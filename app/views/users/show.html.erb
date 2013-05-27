@@ -15,7 +15,8 @@
   	<%= form_for @user, :remote => :true, :html => { :id => 'user_location' } do |f| %>
   	  <%= f.text_field :longitude %>
   	  <%= f.text_field :latitude %>
+      <button class="user_location" type="button" id="locate_me">Locate Me!</button>
   	<% end %>
-    <button class="user_location" type="button" id="locate_me">Locate Me!</button>
+    <%= button_to "Share to FB", wall_post_path, :class => "user_location", :id => "share" %>
   </div>
 </div>
