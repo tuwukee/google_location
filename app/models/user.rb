@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :delete_all
 
-  acts_as_gmappable
+  acts_as_gmappable :validation => false
 
   def apply_omniauth(auth)
     # In previous omniauth, 'user_info' was used in place of 'raw_info'
@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
 
   def gmaps4rails_address
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "#{self.street}, #{self.city}, #{self.country}"
+    #"#{self.street}, #{self.city}, #{self.country}"
   end
 end
