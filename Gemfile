@@ -12,7 +12,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise'   #TODO remove devise
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2', '~> 0.5.0'

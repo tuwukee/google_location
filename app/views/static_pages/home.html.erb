@@ -3,7 +3,3 @@
 </legend>
 
 <%= gmaps4rails(@json) %>
-
-<% unless user_signed_in? %>
-  <%= link_to 'Login with Facebook', '/auth/facebook/' %>
-<% end %>

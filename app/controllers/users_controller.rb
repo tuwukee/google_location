@@ -19,11 +19,8 @@ class UsersController < ApplicationController
 
     if auth
       api = Koala::Facebook::API.new(auth.token)
-      #profile = api.get_object("me")
-      #places = Gmaps4rails.places(@user.latitude, @user.longitude, 'AIzaSyCZ7-of4m82izg9DPJrUw9XGHQBwzC1Ac0', keyword = nil, radius = 7500, lang="en", raw = false, protocol = 'https')
-      #location = places.last[:vicinity] || places.last[:name]
       fql = api.fql_query("SELECT page_id, name, description, display_subtext FROM place WHERE distance(latitude, longitude, \"#{@user.latitude}\", \"#{@user.longitude}\") < 15000 order by checkin_count DESC LIMIT 1").first
-      api.put_wall_post("Was checked", :place => fql['page_id'], :name => fql['name'], :display_subtext => 'Hola', :description => fql['description'])
+      api.put_wall_post("Was checked", :place => fql['page_id'], :name => fql['name'], :display_subtext => fql['display_subtext'], :description => fql['description'])
     end
 
     redirect_to user_path(@user)
